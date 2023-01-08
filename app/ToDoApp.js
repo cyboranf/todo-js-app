@@ -94,3 +94,20 @@ function apiUpdateOperation(operationId, description, timeSpent) {
         }
     );
 }
+
+function apiDeleteOperation(operationId) {
+    return fetch(
+        apihost + '/api/operations/' + operationId,
+        {
+            headers: { Authorization: apikey },
+            method: 'DELETE'
+        }
+    ).then(
+        function (resp) {
+            if(!resp.ok) {
+                alert('Wystąpił błąd! Otwórz devtools i zakładkę Sieć/Network, i poszukaj przyczyny');
+            }
+            return resp.json();
+        }
+    )
+}
