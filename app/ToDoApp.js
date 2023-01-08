@@ -49,3 +49,12 @@ function apiDeleteTask(taskId) {
         }
     )
 }
+
+function apiListOperationsForTask(taskId) {
+    return fetch(
+        apihost + '/api/tasks/' + taskId + '/operations',
+        { headers: { 'Authorization': apikey } }
+    ).then(
+        function (resp) { return resp.json(); }
+    );
+}
