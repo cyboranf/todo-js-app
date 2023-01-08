@@ -9,4 +9,4 @@ In this project I show my skill in JavaScript.
 * you can add / remove operations
 * you can increase time needed for each operation
 
-![view](/jpgToReadMe.png)
+![view](/app/jpgToReadMe.png)
