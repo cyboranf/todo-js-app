@@ -219,3 +219,64 @@ function renderTask(taskId, title, description, status) {
     }
 }
 
+function renderOperation(ul, status, operationId, operationDescription, timeSpent) {
+    const li = document.createElement('li');
+    li.className = 'list-group-item d-flex justify-content-between align-items-center';
+    ul.appendChild(li);
+
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.innerText = operationDescription;
+    li.appendChild(descriptionDiv);
+
+    const time = document.createElement('span');
+    time.className = 'badge badge-success badge-pill ml-2';
+    time.innerText = formatTime(timeSpent);
+    descriptionDiv.appendChild(time);
+
+    if (status == "open") {
+        const controlDiv = document.createElement('div');
+        controlDiv.className = 'js-task-open-only';
+        li.appendChild(controlDiv);
+
+        const add15minButton = document.createElement('button');
+        add15minButton.className = 'btn btn-outline-success btn-sm mr-2';
+        add15minButton.innerText = '+15m';
+        controlDiv.appendChild(add15minButton);
+
+        add15minButton.addEventListener('click', function () {
+            apiUpdateOperation(operationId, operationDescription, timeSpent + 15).then(
+                function (response) {
+                    time.innerText = formatTime(response.data.timeSpent);
+                    timeSpent = response.data.timeSpent;
+                }
+            );
+        });
+        const add1hButton = document.createElement('button');
+        add1hButton.className = 'btn btn-outline-success btn-sm mr-2';
+        add1hButton.innerText = '+1h';
+        controlDiv.appendChild(add1hButton);
+
+        add1hButton.addEventListener('click', function () {
+            apiUpdateOperation(operationId, operationDescription, timeSpent + 60).then(
+                function (response) {
+                    time.innerText = formatTime(response.data.timeSpent);
+                    timeSpent = response.data.timeSpent;
+                }
+            );
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'btn btn-outline-danger btn-sm';
+        deleteButton.innerText = 'Delete';
+        controlDiv.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', function () {
+            apiDeleteOperation(operationId).then(
+                function () {
+                    li.parentElement.removeChild(li);
+                }
+            );
+        });
+    }
+}
+
