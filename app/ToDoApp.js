@@ -58,3 +58,21 @@ function apiListOperationsForTask(taskId) {
         function (resp) { return resp.json(); }
     );
 }
+
+function apiCreateOperationForTask(taskId, description) {
+    return fetch(
+        apihost + '/api/tasks/' + taskId + '/operations',
+        {
+            headers: { Authorization: apikey, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ description: description, timeSpent: 0 }),
+            method: 'POST'
+        }
+    ).then(
+        function (resp) {
+            if(!resp.ok) {
+                alert('Wystąpił błąd! Otwórz devtools i zakładkę Sieć/Network, i poszukaj przyczyny');
+            }
+            return resp.json();
+        }
+    );
+}
