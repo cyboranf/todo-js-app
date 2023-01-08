@@ -76,3 +76,21 @@ function apiCreateOperationForTask(taskId, description) {
         }
     );
 }
+
+function apiUpdateOperation(operationId, description, timeSpent) {
+    return fetch(
+        apihost + '/api/operations/' + operationId,
+        {
+            headers: { Authorization: apikey, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ description: description, timeSpent: timeSpent }),
+            method: 'PUT'
+        }
+    ).then(
+        function (resp) {
+            if(!resp.ok) {
+                alert('Wystąpił błąd! Otwórz devtools i zakładkę Sieć/Network, i poszukaj przyczyny');
+            }
+            return resp.json();
+        }
+    );
+}
