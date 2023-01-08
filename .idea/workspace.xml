@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88ebad02-e49a-40ae-974a-cd1f53b9c87c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ToDoApp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="88ebad02-e49a-40ae-974a-cd1f53b9c87c" name="Changes" comment="Project -reformat">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ToDoApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ToDoApp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +54,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,11 +67,62 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673206239566</updated>
-      <workItem from="1673206240861" duration="698000" />
+      <workItem from="1673206240861" duration="1849000" />
     </task>
+    <task id="LOCAL-00001" summary="project -opened">
+      <created>1673206974717</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673206974717</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignore -updated">
+      <created>1673207041302</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673207041302</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gitignore -updated">
+      <created>1673207125951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673207125951</updated>
+    </task>
+    <task id="LOCAL-00004" summary="index.html with bootstrap -created">
+      <created>1673207188411</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673207188411</updated>
+    </task>
+    <task id="LOCAL-00005" summary="JavaScript file -created">
+      <created>1673207209252</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673207209252</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Project -reformat">
+      <created>1673207312947</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673207312947</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="project -opened" />
+    <MESSAGE value="gitignore -updated" />
+    <MESSAGE value="index.html with bootstrap -created" />
+    <MESSAGE value="JavaScript file -created" />
+    <MESSAGE value="Project -reformat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project -reformat" />
   </component>
 </project>

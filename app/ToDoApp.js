@@ -15,6 +15,24 @@ function apiListAllTasks() {
     );
 }
 
+function apiCreateTask(title, description) {
+    return fetch(
+        apihost + '/api/tasks',
+        {
+            headers: {Authorization: apikey, 'Content-Type': 'application/json'},
+            body: JSON.stringify({title: title, description: description, status: 'open'}),
+            method: 'POST'
+        }
+    ).then(
+        function (resp) {
+            if (!resp.ok) {
+                alert('Wystąpił błąd! Otwórz devtools i zakładkę Sieć/Network, i poszukaj przyczyny');
+            }
+            return resp.json();
+        }
+    );
+}
+
 function apiUpdateTask(taskId, title, description, status) {
     return fetch(
         apihost + '/api/tasks/' + taskId,
@@ -152,6 +170,7 @@ function renderTask(taskId, title, description, status) {
             );
         });
     }
+
     const deleteButton = document.createElement('button');
     deleteButton.className = 'btn btn-outline-danger btn-sm ml-2';
     deleteButton.innerText = 'Delete';
@@ -161,6 +180,7 @@ function renderTask(taskId, title, description, status) {
             section.parentElement.removeChild(section);
         });
     });
+
     const ul = document.createElement('ul');
     ul.className = 'list-group list-group-flush';
     section.appendChild(ul);
@@ -174,6 +194,7 @@ function renderTask(taskId, title, description, status) {
             )
         }
     )
+
     if (status == 'open') {
         const addOperationDiv = document.createElement('div');
         addOperationDiv.className = 'card-body js-task-open-only';
@@ -251,6 +272,7 @@ function renderOperation(ul, status, operationId, operationDescription, timeSpen
                 }
             );
         });
+
         const add1hButton = document.createElement('button');
         add1hButton.className = 'btn btn-outline-success btn-sm mr-2';
         add1hButton.innerText = '+1h';
@@ -280,3 +302,33 @@ function renderOperation(ul, status, operationId, operationDescription, timeSpen
     }
 }
 
+function formatTime(total) {
+    const hours = Math.floor(total / 60);
+    const minutes = total % 60;
+    if (hours > 0) {
+        return hours + 'h ' + minutes + 'm';
+    } else {
+        return minutes + 'm';
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    apiListAllTasks().then(
+        function (response) {
+            response.data.forEach(
+                function (task) {
+                    renderTask(task.id, task.title, task.description, task.status);
+                }
+            )
+        }
+    );
+    document.querySelector('.js-task-adding-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        apiCreateTask(event.target.elements.title.value, event.target.elements.description.value).then(
+            function (response) {
+                renderTask(response.data.id, response.data.title, response.data.description, response.data.status)
+            }
+        )
+    });
+});
